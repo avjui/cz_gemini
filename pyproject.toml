@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="cz_gemini"
+version="0.1.0"
+dependencies = [
+        "commitizen", 
+        "google-generativeai"
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Rene´ Juen", email = "jrene@gmail.com"},
+]
+maintainers = [
+   {name = "Rene´ Juen", email = "jrene@gmail.com"},
+]
+description = "plugin for autocommit or spellcheck and auto correction"
+readme = "README.md"
+#license = "MIT"
+#license-files = ["LICEN[CS]E.*"]
+keywords = ["commitzen", "google", "gemini"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Homepage = "https://github.com/avui/cz_gemini"
+Documentation = "https://github.com/avui/cz_gemini"
+Repository = "https://github.com/avui/cz_gemini.git"
+"Bug Tracker" = "https://github.com/avui/cz_gemini/issues"
+Changelog = "https://github.com/avui/cz_gemini/blob/master/CHANGELOG.md"
+

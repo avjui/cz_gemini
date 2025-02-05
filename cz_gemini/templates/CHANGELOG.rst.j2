@@ -1,0 +1,31 @@
+{% for entry in tree %}
+
+{% set entry_title -%}
+{{ entry.version }}{% if entry.date %} ({{ entry.date }}){% endif -%}
+{%- endset %}
+{{ entry_title }}
+{{ "=" * entry_title|length }}
+{% for change_key, changes in entry.changes.items() %}
+
+{% if change_key -%}
+{{ change_key }}
+{{ "-" * change_key|length }}
+{% endif %}
+
+{% for change in changes %}
+{% if change.git_url %}
+{% if change.git_commits_url %}
+{% set commit_link = "(" + change.sha1[:7] + " <" + change.git_url + change.git_commits_url + change.sha1 + ">' _)"  %}
+{% endif %}
+{% if change.git_base_url %}
+{% set author_link = "(" + change.author + " <" + change.git_base_url + "\" + change.author + ">' _)"  %}
+{% endif %}
+{% endif %}
+{% if change.scope %}
+- **{{ change.scope }}**: {{ change.message }} {{commit_link}} {{ author_link }}
+{% elif change.message %}
+- {{ change.message }} {{commit_link}} {{ author_link }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endfor %}

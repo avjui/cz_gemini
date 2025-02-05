@@ -1,0 +1,17 @@
+{
+  "commitizen": {
+    "name": "cz_gemini",
+    "version": "0.2.0",
+    "tag_format": "v$major.$minor.$patch$prerelease",
+    "version_type": "semver",
+    "version_files": [
+      "setup.py"
+    ],
+    "bump_message": "bump version $current_version \u2192 $new_version",
+    "update_changelog_on_bump": true,
+    "major_version_zero": true,
+    "gemini": {
+      "autogenerate": true
+    }
+  }
+}
