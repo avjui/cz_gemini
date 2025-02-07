@@ -3,8 +3,8 @@ name: Check commits message
 on: pull_request
 
 env:
-    GOOGLE_API_KEY: ${{ env.GOOGLE_API_KEY }}
-
+    GOOGLE_API_KEY: ${{ vars.GOOGLE_API_KEY }}
+    
 jobs:
   check-messages:
     runs-on: ubuntu-latest
