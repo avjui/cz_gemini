@@ -2,6 +2,9 @@ name: Check commits message
 
 on: pull_request
 
+env:
+    GOOGLE_API_KEY: ${{ env.GOOGLE_API_KEY }}
+
 jobs:
   check-messages:
     runs-on: ubuntu-latest
@@ -16,6 +19,9 @@ jobs:
         with:
           # we need all the history to be able to resolve revision ranges properly
           fetch-depth: 0
+      - name: Install cz_gemini from local repository
+        run: |
+            python -m pip install .
       - name: Install commitizen
         run: python -m pip install commitizen
       - name: Run commit message checks
