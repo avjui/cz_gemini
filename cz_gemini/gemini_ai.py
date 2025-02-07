@@ -111,20 +111,25 @@ class AiGemini():
         # After that we build dict for later processing
         for a in answer.split("\n"):  
 
-            # seems the pattern is not the best so 
+            # TODO: make regex better because sometimes we can not parse all answer
+            # then this may failed
+            try:
             # remove empty line if one exist
-            if "(" in a:
-                c = {
-                    "value": a,
-                    "name": a,
-                    "key": f"{_l}"
-                    }
-                choices.append(c)
+                if "(" in a:
+                    # create dict so we can later build the message dict for commit template
+            
+                    self.message[a] = { "change_type": pieces[_l][0], "scope": pieces[_l][1], "subject": pieces[_l][2], "body": pieces[_l][3]}
+                    c = {
+                        "value": a,
+                        "name": a,
+                        "key": f"{_l}"
+                        }
+                    
+                    choices.append(c)
+                    _l += 1
 
-                # create dict so we can later build the message dict for commit template
-                self.message[a] = { "change_type": pieces[_l][0], "scope": pieces[_l][1], "subject": pieces[_l][2], "body": pieces[_l][3]}
-
-                _l += 1
+            except Exception as e:
+                print(colored(f"Failed to handle all messages!", "red"))
 
         # generate message list
         questions =  [{

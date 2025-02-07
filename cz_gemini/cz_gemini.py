@@ -244,6 +244,7 @@ class GeminiCz(BaseCommitizen):
         # In This case we generate autocommit from gemini
         if self.autogenerate:
             self.question = self._auto_question()
+    
             
         # otherwise we make it old school manual
         else:
@@ -263,6 +264,7 @@ class GeminiCz(BaseCommitizen):
         else:
             print(f"Answers from input: {answers}")
             if(answers['manual'] != ""):
+                answers['body'] = ""
                 _answer = answers["manual"].split(":")
                 answers["subject"] = _answer[1]
                 if ("(" in _answer[0]):
@@ -276,8 +278,6 @@ class GeminiCz(BaseCommitizen):
                 for k,v in self.ai.message[_answer].items():
                     answers[k] = v
         is_breaking_change = answers["is_breaking_change"]
-
-        print(f"Answer after {answers}")
         
         prefix = answers["change_type"]
         scope = answers["scope"]
