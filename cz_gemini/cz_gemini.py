@@ -423,6 +423,7 @@ class GeminiCz(BaseCommitizen):
             for k,v in self.messages.items():
                 
                 _add = True
+                _confirm = False
 
                 # add types to choice
                 if k == "change_type":
@@ -433,11 +434,6 @@ class GeminiCz(BaseCommitizen):
                 # no we need no dict anymore
                 else:
                     _choice = {}
-
-                if k ==  "is_breaking_change":
-                    _confirm = True
-                else:
-                    _confirm = False
                 
                 if k == "manual":
                     _add = False
