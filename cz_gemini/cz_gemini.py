@@ -83,7 +83,7 @@ class GeminiCz(BaseCommitizen):
         self.question = None
         
         # schema defaults
-        self.schema_pattern_ = SCHEMA_PATTERN
+        self._schema_pattern = SCHEMA_PATTERN
         self.schema_ = SCHEMA
 
         #scope default
@@ -209,7 +209,7 @@ class GeminiCz(BaseCommitizen):
         #from regex101.com https://regex101.com/library/ibVctF?filterFlavors=pcre&filterFlavors=golang&orderBy=RELEVANCE&search=url
         base_url_regex = r"^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$"
         base_url_sub = "\\g<1>//\g<3>/"
-        
+
         # get remotes from git
         git_hosts = cmd.run("git remote -v").out
         
@@ -224,10 +224,22 @@ class GeminiCz(BaseCommitizen):
             for k,v in GIT_COMMITS_URL.items():
                     if k in self.git_host:
                         parsed_message['git_commits_url'] = v
+
+            match_mit_git = re.match(r"git@([^:]+):(.*)\.git", self.git_host)
+            match_ohne_git = re.match(r"git@([^:]+):(.*)", self.git_host)
+
+            if match_mit_git:
+                self.git_host = f"https://{match_mit_git.group(1)}/{match_mit_git.group(2)}"
+            elif match_ohne_git:
+                self.git_host =  f"https://{match_ohne_git.group(1)}/{match_ohne_git.group(2)}"
+            else:
+                self.git_host = ""
+
             parsed_message['git_url'] = self.git_host
+            print(f"git host: {self.git_host} | git url: {parsed_message['git_url']}")
                 
             #parse base url from origin url
-            self.git_host = re.sub(base_url_regex, base_url_sub, self.git_host)
+            self.git_host = re.sub(base_url_regex, base_url_sub, parsed_message['git_url'])
             parsed_message['git_base_url'] = self.git_host
 
         else:
@@ -306,7 +318,7 @@ class GeminiCz(BaseCommitizen):
 
 
     def schema_pattern(self) -> str | None:
-        return self.schema_pattern
+        return self._schema_pattern
 
 
     def schema(self) -> str | None:        
