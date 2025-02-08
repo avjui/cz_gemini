@@ -225,13 +225,15 @@ class GeminiCz(BaseCommitizen):
                     if k in self.git_host:
                         parsed_message['git_commits_url'] = v
 
-            match_mit_git = re.match(r"git@([^:]+):(.*)\.git", self.git_host)
-            match_ohne_git = re.match(r"git@([^:]+):(.*)", self.git_host)
+            # in case we origin url git@github:avjui/blabla(.git) we generate https://github.com/avjui/blabla
 
-            if match_mit_git:
-                self.git_host = f"https://{match_mit_git.group(1)}/{match_mit_git.group(2)}"
-            elif match_ohne_git:
-                self.git_host =  f"https://{match_ohne_git.group(1)}/{match_ohne_git.group(2)}"
+            match_with_git = re.match(r"git@([^:]+):(.*)\.git", self.git_host)
+            match_without_git = re.match(r"git@([^:]+):(.*)", self.git_host)
+
+            if match_with_git:
+                self.git_host = f"https://{match_with_git.group(1)}/{match_with_git.group(2)}"
+            elif match_without_git:
+                self.git_host =  f"https://{match_without_git.group(1)}/{match_without_git.group(2)}"
             else:
                 self.git_host = ""
 
