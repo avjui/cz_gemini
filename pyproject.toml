@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name="cz_gemini"
-version="0.1.0"
+version="0.2.0"
 dependencies = [
         "commitizen", 
         "google-generativeai"
@@ -18,8 +18,7 @@ maintainers = [
 ]
 description = "plugin for autocommit or spellcheck and auto correction"
 readme = "README.md"
-#license = "MIT"
-#license-files = ["LICEN[CS]E.*"]
+license = {file = "LICENSE"}
 keywords = ["commitzen", "google", "gemini"]
 classifiers = [
   "Development Status :: 4 - Beta",

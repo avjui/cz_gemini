@@ -1,0 +1,57 @@
+name: Bump version
+
+on:
+  push:
+    branches:
+      - main
+env:
+    GOOGLE_API_KEY: ${{ vars.GOOGLE_API_KEY }}
+    
+jobs:
+  bump-version:
+    if: "!startsWith(github.event.head_commit.message, 'bump version')"
+    runs-on: ubuntu-latest
+    name: "Bump version and create changelog with commitizen"
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+      - name: Setup Git User
+        run: |
+          git config user.name "GitHub Action [BOT]"
+          git config user.email "github-action[bot]@github.com"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+          architecture: x64
+      
+      - name: Install cz_gemini from local repository
+        run: |
+              echo "Install cz_gemino to system"
+              python -m pip install .
+              cz bump --yes --changelog --git-output-to-stder --changelog-to-stdout >> body.md
+      
+      - name: Push using ssh
+        run: |
+          git push origin main --tags
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: body
+          overwrite: true
+          path: |
+            body.md
+
+      - name: Pushing back to development
+        run: |
+          git checkout develop
+          git pull
+          git merge origin/main
+          git status
+          git log -1 --name-status
+          git push origin develop

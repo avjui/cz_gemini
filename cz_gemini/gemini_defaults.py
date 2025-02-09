@@ -266,7 +266,7 @@ QUESTIONS : Questions = [
       ]
     
 # schema defaults
-SCHEMA_PATTERN = "^(build|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\\([\\w\\-\\.]+\\))?(!)?: ([\\w \\-'])+([\\s\\S]*)"
+SCHEMA_PATTERN = "(?s)(build|ci/cd|docs|feat|fix|perf|refactor|style|test|chore|revert|bump){1}(\(\S+\))?!?:( [^\n\r]+)((\n\n.*)|(\s*))?$"
 SCHEMA = "<type>(<scope>): <subject>\n \n<body>\n \n(BREAKING CHANGE: )<footer>"
 
 #default scopes

@@ -1,0 +1,32 @@
+name: Check bump version
+
+on: pull_request
+
+env:
+    GOOGLE_API_KEY: ${{ vars.GOOGLE_API_KEY }}
+    
+jobs:
+  check-messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+          architecture: x64
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # we need all the history to be able to resolve revision ranges properly
+          fetch-depth: 0
+      - name: Setup Git User
+        run: |
+            git config user.name "GitHub Action [BOT]"
+            git config user.email "github-action[bot]@github.com"
+      - name: Install commitizen
+        run: python -m pip install commitizen
+      - name: Install cz_gemini from local repository
+        run: |
+              echo "Install cz_gemino to system"
+              python -m pip install .
+              cz bump --yes --changelog --git-output-to-stder --changelog-to-stdout >> body.md
