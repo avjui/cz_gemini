@@ -1,3 +1,10 @@
+## v0.3.1 (2025-02-09)
+
+### :bug: Bug Fixes:
+
+- **project**: change if instruction to publish to testpypi when a version bump commit is present ([5af9013](https://github.com/avjui/cz_gemini/commit/5af901354efacd629e4726f8df69cbc5b2be89ed)) ([avjui](https://github.com/avjui))
+ 
+
 ## v0.3.0 (2025-02-09)
 
 ### :sparkles: Features:
