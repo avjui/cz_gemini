@@ -204,7 +204,7 @@ class GeminiCz(BaseCommitizen):
 
     def changelog_message_builder_hook(self, parsed_message: dict, commit: git.GitCommit) -> dict | list | None:
         
-        origin_regex = r"(?<=origin\W)(.*)(?=\.git\s\(fetch)"
+        origin_regex = r"(?<=origin\W)(.*)(?=\s\(fetch)"
        
         #from regex101.com https://regex101.com/library/ibVctF?filterFlavors=pcre&filterFlavors=golang&orderBy=RELEVANCE&search=url
         base_url_regex = r"^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$"
