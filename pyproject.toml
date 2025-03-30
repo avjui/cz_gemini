@@ -26,9 +26,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/avui/cz_gemini"
-Documentation = "https://github.com/avui/cz_gemini"
-Repository = "https://github.com/avui/cz_gemini.git"
-"Bug Tracker" = "https://github.com/avui/cz_gemini/issues"
-Changelog = "https://github.com/avui/cz_gemini/blob/master/CHANGELOG.md"
+Homepage = "https://github.com/avjui/cz_gemini"
+Documentation = "https://github.com/avjui/cz_gemini"
+Repository = "https://github.com/avjui/cz_gemini.git"
+"Bug Tracker" = "https://github.com/avjui/cz_gemini/issues"
+Changelog = "https://github.com/avjui/cz_gemini/blob/master/CHANGELOG.md"
 
