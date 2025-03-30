@@ -1,3 +1,10 @@
+## v0.3.2 (2025-03-30)
+
+### :bug: Bug Fixes:
+
+- **project**: fix cz bump remove debug output to file ([c19ff49](https://github.com/avjui/cz_gemini/commit/c19ff49a8a54a2aecd7e5a222f14b9b2f92198f4)) ([avjui](https://github.com/avjui))
+ 
+
 ## v0.3.1 (2025-02-09)
 
 ### :bug: Bug Fixes:
