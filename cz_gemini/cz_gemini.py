@@ -238,7 +238,6 @@ class GeminiCz(BaseCommitizen):
                 self.git_host = ""
 
             parsed_message['git_url'] = self.git_host
-            print(f"git host: {self.git_host} | git url: {parsed_message['git_url']}")
                 
             #parse base url from origin url
             self.git_host = re.sub(base_url_regex, base_url_sub, parsed_message['git_url'])
