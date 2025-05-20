@@ -27,7 +27,7 @@ setup(
     description="plugin for autocommit or spellcheck and auto correction",
     long_description=long_description,
     install_requires=[
-        "commitizen", 
+        "commitizen>=4.7.2", 
         "google-generativeai"
         ],
     entry_points={"commitizen.plugin": ["cz_gemini = cz_gemini.cz_gemini:GeminiCz"]},

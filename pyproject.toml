@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name="cz_gemini"
 version="0.3.2"
 dependencies = [
-        "commitizen", 
+        "commitizen>=4.7.2", 
         "google-generativeai"
 ]
 requires-python = ">=3.8"

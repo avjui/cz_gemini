@@ -39,7 +39,7 @@ BUMP_MAP = {
         "style": "PATCH",
         "test": "PATCH"
       }
-BUMP_MAP_MAJOR_VERSION_ZERO = defaults.bump_map_major_version_zero
+BUMP_MAP_MAJOR_VERSION_ZERO = defaults.BUMP_MAP_MAJOR_VERSION_ZERO
 
 # default change_types
 CHANGE_TYPES = {
