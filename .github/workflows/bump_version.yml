@@ -37,7 +37,7 @@ jobs:
       
       - name: Push using ssh
         run: |
-          git push origin main --tags
+          git push origin --tags
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
