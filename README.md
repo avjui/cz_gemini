@@ -4,18 +4,20 @@
 
 ## Table of Contents
 
-- [Commitizen Gemini Plugin](#commitizen-gemeni-plugin)
+- [Commitizen Gemini Plugin](#commitizen-gemini-plugin)
   - [Table of Contents](#table-of-contents)
   - [About ](#about-)
   - [Getting Started ](#getting-started-)
     - [Installing ](#installing-)
+      - [First option installing from TestPyPi:](#first-option-installing-from-testpypi)
+      - [Second option installing it by hand:](#second-option-installing-it-by-hand)
   - [Configure ](#configure-)
-  - [Usage](#usage-)
-  - [TODO](#todo-)
+  - [Usage ](#usage-)
+  - [TODO ](#todo-)
 
 ## About <a name = "about"></a>
 
-This plugin extends commitzen for ai functions. The plugin will use Google Gemini API.
+This plugin extends commitzen for AI functions. The plugin will use Google Gemini API.
 
 There are two options the plugin provides.
   - auto generate commit messages base on changes.
