@@ -11,10 +11,10 @@ dependencies = [
 ]
 requires-python = ">=3.8"
 authors = [
-  {name = "Rene´ Juen", email = "jrene@gmail.com"},
+  {name = "Rene´ Juen", email = "jrene6774@gmail.com"},
 ]
 maintainers = [
-   {name = "Rene´ Juen", email = "jrene@gmail.com"},
+   {name = "Rene´ Juen", email = "jrene6774@gmail.com"},
 ]
 description = "plugin for autocommit or spellcheck and auto correction"
 readme = "README.md"
