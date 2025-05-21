@@ -1,3 +1,19 @@
+## v0.3.3 (2025-05-21)
+
+### :bug: Bug Fixes:
+
+- **backend**: fix breaking changes for commitzen >= 4.7.2 ([e5c736d](https://github.com/avjui/cz_gemini/commit/e5c736d182eb31f5855f9a8e1a9310b5eb8e1c4b)) ([Rene Juen](https://github.com/Rene Juen))
+ 
+- **project**: fix spelling errors in pyproject.toml ([4cf2e87](https://github.com/avjui/cz_gemini/commit/4cf2e8789ccc774b09f24ae44d245a6386c8f7cf)) ([avjui](https://github.com/avjui))
+ 
+
+### :memo: Documentation:
+
+- **project**: correct email address ([897f34f](https://github.com/avjui/cz_gemini/commit/897f34fc05c1dafc983c057f1fede48ecc2ab788)) ([avjui](https://github.com/avjui))
+ 
+- **utils**: fix some spelling errors in readme.md ([512eaeb](https://github.com/avjui/cz_gemini/commit/512eaeb1b6190444bcabffc5364e14f42dbdb2ce)) ([Rene Juen](https://github.com/Rene Juen))
+ 
+
 ## v0.3.2 (2025-03-30)
 
 ### :bug: Bug Fixes:

@@ -8,7 +8,7 @@ long_description = (base / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="cz_gemini",
-    version="0.3.2",
+    version="0.3.3",
 
     packages = ['cz_gemini/templates'],
     package_data={'cz_gemini/templates':['*'],},
