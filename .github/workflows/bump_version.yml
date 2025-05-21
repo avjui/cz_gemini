@@ -37,7 +37,7 @@ jobs:
       
       - name: Push using ssh
         run: |
-          git push origin main
+          git push 
           git push origin --tags
 
       - name: Upload artifact
@@ -55,4 +55,4 @@ jobs:
           git merge origin/main
           git status
           git log -1 --name-status
-          git push origin develop
+          git push 
